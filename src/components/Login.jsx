@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Header from './Header'
+import { checkValidate } from '../utils/validate'
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true)
+
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handlebuttonClick = (e) => {
+    e.preventDefault();
+    checkValidate(email, password)
+    console.log(email, password)
+  }
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm)
@@ -27,7 +37,7 @@ const Login = () => {
 
       {/* Auth section */}
       <div className='relative z-10 flex min-h-screen items-center justify-center px-4 py-20'>
-        <form className='w-full max-w-md rounded-md bg-black/55 px-8 py-10 text-white shadow-2xl backdrop-blur-sm'>
+        <form onSubmit={handlebuttonClick} className='w-full max-w-md rounded-md bg-black/55 px-8 py-10 text-white shadow-2xl backdrop-blur-sm'>
           <h1 className='mb-8 text-3xl font-bold'>
             {isSignInForm ? 'Sign In' : 'Sign Up'}
           </h1>
@@ -43,11 +53,13 @@ const Login = () => {
 
             <input
               type='text'
+              ref={email}
               placeholder='Email or phone number'
               className='h-14 w-full rounded-md border border-zinc-600 bg-zinc-800/80 px-4 text-white outline-none transition focus:border-white focus:bg-zinc-700 placeholder:text-zinc-400'
             />
 
             <input
+             ref={password}
               type='password'
               placeholder='Password'
               className='h-14 w-full rounded-md border border-zinc-600 bg-zinc-800/80 px-4 text-white outline-none transition focus:border-white focus:bg-zinc-700 placeholder:text-zinc-400'
