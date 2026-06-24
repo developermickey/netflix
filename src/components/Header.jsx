@@ -10,7 +10,7 @@ const Header = () => {
             <a href="#" className='hover:text-gray-400 text-xl'>TV Shows</a>
             <a href="#" className='hover:text-gray-400 text-xl'>Movies</a>
             <a href="#" className='hover:text-gray-400 text-xl'>New & Popular</a>
-            <a href="#" className='hover:text-gray-400 text-xl'>My List</a>
+            <a href="#" className='hover:text-gray-400 text-xl'>Login</a>
 
         </nav>
 
