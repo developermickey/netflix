@@ -1,14 +1,7 @@
-import React from 'react'
-import Body from './components/Body'
-import Header from './components/Header'
+import Body from "./components/Body";
 
-export const App = () => {
-  return (
-    <div>
-      <Header />
-      <Body />
-    </div>
-  )
+function App() {
+  return <Body />;
 }
 
-export default App
+export default App;
